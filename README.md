@@ -1,17 +1,16 @@
 Parcel plugin for generating an bundle manifest.
 
-![](https://travis-ci.org/mugi-uno/parcel-plugin-bundle-manifest.svg?branch=master)
+This repository is a fork of the https://github.com/mugi-uno/parcel-plugin-bundle-manifest repository. See the fork section for an explanation of why we fork it.
 
-Usage
-========
+# Usage
 
-## install
+## Install
 
 ```
-npm install --save-dev parcel-plugin-bundle-manifest
+npm install --save-dev @custhome/parcel-plugin-bundle-manifest
 ```
 
-## build
+## Build
 
 ```
 parcel build entry.js
@@ -19,24 +18,34 @@ parcel build entry.js
 
 ## Output
 
-Output a `parcel-manifest.json` file to the same directory as the bundle file.
+Output a `asset-manifest.json` file to the same directory as the bundle file.
 
 - dist/entry.html
 - dist/{hash}.js
 - dist/{hash}.css
-- dist/parcel-manifest.json
+- dist/asset-manifest.json
 
-The Manifest will look like this : 
+The manifest will look like this :
 
 ```json
 {
-  "index.html": "/dist/index.html",
-  "index.js": "/dist/5f0796534fe2892712053b3a035f585b.js",
-  "main.scss": "/dist/5f0796534fe2892712053b3a035f585b.css"
+  "files": {
+    "index.html": "/dist/index.html",
+    "index.js": "/dist/5f0796534fe2892712053b3a035f585b.js",
+    "main.scss": "/dist/5f0796534fe2892712053b3a035f585b.css"
+  }
 }
 ```
 
-License
-========
+# Fork
+
+We choose to fork the repository to change to format of the asset manifest files. We needed it to match the webpack one.
+
+This lead to two main changes:
+
+- We add a key `files` at the file root containing the file list
+- We rename the outputed manifest file from `parcel-manifest.json` to `asset-manifest.json`
+
+# License
 
 MIT
