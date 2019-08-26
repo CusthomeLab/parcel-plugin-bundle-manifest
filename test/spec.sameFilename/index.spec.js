@@ -14,9 +14,11 @@ describe("many files with the same filename", () => {
     expect(json).toHaveProperty("files");
 
     const files = json.files;
-    expect(Object.keys(files)).toHaveLength(3);
+    expect(Object.keys(files)).toHaveLength(5);
     expect(files["index.html"]).toBeTruthy();
     expect(files["script.js"]).toBeTruthy();
+    expect(files["script.js.map"]).toBeTruthy();
     expect(files["sub/script.js"]).toBeTruthy();
+    expect(files["sub/script.js.map"]).toBeTruthy();
   });
 });
