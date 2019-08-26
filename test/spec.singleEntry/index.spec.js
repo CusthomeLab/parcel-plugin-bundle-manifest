@@ -25,8 +25,9 @@ describe("single entry file", () => {
     expect(json).toHaveProperty("files");
 
     const files = json.files;
-    expect(Object.keys(files)).toHaveLength(1);
+    expect(Object.keys(files)).toHaveLength(2);
     expect(files["script.js"]).toBeTruthy();
+    expect(files["script.js.map"]).toBeTruthy();
   });
 
   test("css", async () => {
@@ -36,7 +37,8 @@ describe("single entry file", () => {
     expect(json).toHaveProperty("files");
 
     const files = json.files;
-    expect(Object.keys(files)).toHaveLength(1);
+    expect(Object.keys(files)).toHaveLength(2);
     expect(files["style.css"]).toBeTruthy();
+    expect(files["style.css.map"]).toBeTruthy();
   });
 });

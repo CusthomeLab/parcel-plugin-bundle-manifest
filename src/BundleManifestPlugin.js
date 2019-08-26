@@ -30,20 +30,25 @@ module.exports = function(bundler) {
    * @param {string} publicURL
    */
   const feedManifestValue = (bundle, manifestValue, publicURL) => {
-    let output = path.join(publicURL, path.basename(bundle.name));
-
-    if (isServiceWorkerFile(output)) {
-      return;
-    }
-
     const input = bundle.entryAsset
       ? bundle.entryAsset.relativeName
       : bundle.assets.size
       ? bundle.assets.values().next().value.relativeName
       : null;
+    const output = path.join(publicURL, path.basename(bundle.name));
+
     if (input && !manifestValue.files[input]) {
       manifestValue.files[input] = output;
       // console.info(`✓ bundle : ${input} => ${output}`);
+    }
+
+    if (input && bundle.siblingBundlesMap.has("map")) {
+      const map = bundle.siblingBundlesMap.get("map");
+
+      const inputMap = input.concat(".map");
+      const outputMap = path.join(publicURL, path.basename(map.name));
+
+      manifestValue.files[inputMap] = outputMap;
     }
 
     bundle.childBundles.forEach(function(bundle) {
@@ -82,16 +87,4 @@ function emptyManifest() {
   return {
     files: {}
   };
-}
-
-function isServiceWorkerFile(output) {
-  const commonServiceWorkerFilenames = [
-    "service-worker.js",
-    "serviceWorker.js",
-    "sw.js"
-  ];
-
-  return commonServiceWorkerFilenames.some(serviceWorkerName =>
-    output.endsWith(serviceWorkerName)
-  );
 }

@@ -41,10 +41,11 @@ The manifest will look like this :
 
 We choose to fork the repository to change to format of the asset manifest files. We needed it to match the webpack one.
 
-This lead to two main changes:
+This lead to three main changes:
 
 - We add a key `files` at the file root containing the file list
 - We rename the outputed manifest file from `parcel-manifest.json` to `asset-manifest.json`
+- Service worker are in the manifest like any other files
 
 # License
 
