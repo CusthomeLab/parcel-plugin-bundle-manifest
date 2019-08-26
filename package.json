@@ -1,6 +1,6 @@
 {
   "name": "@custhome/parcel-plugin-bundle-manifest",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Parcel plugin for generating an bundle manifest.",
   "main": "index.js",
   "keywords": [
@@ -22,12 +22,18 @@
     "np": "^5.0.3",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.18.2",
-    "release": "np",
     "rimraf": "^3.0.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
       "./test/setupTestFrameworkScriptFile.js"
     ]
+  },
+  "np": {
+    "yarn": true
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
