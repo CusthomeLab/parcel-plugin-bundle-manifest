@@ -1,6 +1,6 @@
 {
   "name": "@custhome/parcel-plugin-bundle-manifest",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Parcel plugin for generating an bundle manifest.",
   "main": "index.js",
   "keywords": [
