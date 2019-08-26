@@ -1,16 +1,33 @@
 {
-  "name": "parcel-plugin-bundle-manifest",
-  "version": "0.2.0",
+  "name": "@custhome/parcel-plugin-bundle-manifest",
+  "version": "1.0.0",
   "description": "Parcel plugin for generating an bundle manifest.",
   "main": "index.js",
   "keywords": [
     "parcel",
     "manifest"
   ],
-  "repository": "https://github.com/mugi-uno/parcel-plugin-bundle-manifest.git",
+  "repository": "https://github.com/magelanLab/parcel-plugin-bundle-manifest.git",
   "author": "mugi-uno <mugi.uno@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "release": "np"
+  },
   "peerDependencies": {
-    "parcel-bundler": "^1.1.0"
+    "parcel-bundler": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "np": "^5.0.3",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.18.2",
+    "release": "np",
+    "rimraf": "^3.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setupTestFrameworkScriptFile.js"
+    ]
   }
 }

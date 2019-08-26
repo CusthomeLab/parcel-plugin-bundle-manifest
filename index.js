@@ -1,1 +1,1 @@
-module.exports = require('./plugins/BundleManifestPlugin');
+module.exports = require("./src/BundleManifestPlugin");
