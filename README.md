@@ -32,7 +32,9 @@ The manifest will look like this :
   "files": {
     "index.html": "/dist/index.html",
     "index.js": "/dist/5f0796534fe2892712053b3a035f585b.js",
+    "index.js.map": "/dist/5f0796534fe2892712053b3a035f585b.js.map",
     "main.scss": "/dist/5f0796534fe2892712053b3a035f585b.css"
+    "main.scss.map": "/dist/5f0796534fe2892712053b3a035f585b.css.map"
   }
 }
 ```
